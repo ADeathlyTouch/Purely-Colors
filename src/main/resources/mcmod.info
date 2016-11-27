@@ -1,0 +1,16 @@
+[
+{
+  "modid": "colors",
+  "name": "Colors",
+  "description": "Colors adds 16 differently colored blocks, a pretty Rainbow block, and an Enderpearl that goes farther! And all blocks light up when given a Redstone Signal! (Configurable)",
+  "version": "1.0.0",
+  "mcversion": "1.11",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["A Deathly Touch"],
+  "credits": "A Deathly Touch in Association with Team Avion",
+  "logoFile": "logo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]

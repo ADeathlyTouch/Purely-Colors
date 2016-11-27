@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "particle": "colors:colors/purelightblue",
+    "all": "colors:colors/purelightblue"
+  }
+}

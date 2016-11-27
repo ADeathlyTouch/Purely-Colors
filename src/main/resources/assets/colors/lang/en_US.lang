@@ -1,0 +1,23 @@
+#GUI
+itemGroup.colorstab=Colors
+#Items
+item.purifieddust.name=Purified Dust
+item.compressed_enderpearl.name=Compressed Ender Pearl
+#Colors
+tile.rainbowblock.name=Rainbow Block
+tile.purewhite.name=Pure White Block
+tile.purelightgrey.name=Pure Lightgrey Block
+tile.puregrey.name=Pure Grey Block
+tile.pureblack.name=Pure Black Block
+tile.pureblue.name=Pure Blue Block
+tile.purelightblue.name=Pure Lightblue Block
+tile.purecyan.name=Pure Cyan Block
+tile.puregreen.name=Pure Green Block
+tile.purelime.name=Pure Lime Block
+tile.pureorange.name=Pure Orange Block
+tile.purepurple.name=Pure Purple Block
+tile.puremagenta.name=Pure Magenta Block
+tile.purepink.name=Pure Pink Block
+tile.purered.name=Pure Red Block
+tile.pureyellow.name=Pure Yellow Block
+tile.purebrown.name=Pure Brown Block
