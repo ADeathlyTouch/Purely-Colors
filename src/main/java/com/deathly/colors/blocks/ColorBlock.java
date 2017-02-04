@@ -3,20 +3,16 @@ package com.deathly.colors.blocks;
 /**
  * Created by Deathly on 11/19/2016 at 9:39 PM.
  */
-import com.deathly.colors.Colors;
+
 import com.deathly.colors.Ref;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -27,8 +23,6 @@ import javax.annotation.Nullable;
 import java.util.HashMap;
 import java.util.Random;
 
-import static com.deathly.colors.Colors.logger;
-
 /**
  * Created by Deathly on 11/19/2016.
  */
@@ -38,33 +32,31 @@ public class ColorBlock extends Block {
     private Boolean isOn = false;
 
     /**
-     * @param uname The block's unlocalized name
+     * @param color The block's unique color string (will be used for unlocalized names and must match model and blockstate JSON files
+     * @param isOn  Whether this block is the illuminated version
      */
-    public ColorBlock(String uname, Boolean isOn) {
+    public ColorBlock(String color, Boolean isOn) {
         super(Material.WOOD);
-
         setResistance(100F);
         setHardness(0.5F);
         setHarvestLevel("pickaxe", 0);
 
-        this.color = uname;
+        String unlocalizedName = isOn ? (color + "lit") : color;
+
+        this.color = color;
         this.isOn = isOn;
 
-        if (isOn) {
-            // ILLUMINATED
-            setLightLevel(1F);
-            setRegistryName(uname + "lit");
-            setUnlocalizedName(uname + "lit");
-        } else {
-            // NORMAL
-            setRegistryName(uname);
-            setUnlocalizedName(uname);
-            setCreativeTab(Ref.COLORS_CREATIVE_TAB);
-            // only non-illuminated blocks have items.
-            GameRegistry.register(new ItemBlock(this), getRegistryName());
-        }
+        setRegistryName(unlocalizedName);
+        setUnlocalizedName(unlocalizedName);
 
         GameRegistry.register(this);
+
+        if (isOn) {
+            setLightLevel(1F);
+        } else {
+            GameRegistry.register(new ItemBlock(this), getRegistryName());
+            setCreativeTab(Ref.COLORS_CREATIVE_TAB);
+        }
     }
 
     @SideOnly(Side.CLIENT)

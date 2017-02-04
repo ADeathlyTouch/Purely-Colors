@@ -11,20 +11,18 @@ import static com.deathly.colors.Colors.logger;
 
 public class ModBlocks {
 
-    public static HashMap<String, HashMap<String, ColorBlock>> blockMap = new HashMap<>();
-    public static List<ColorBlock> blocks = new ArrayList<>();
-    public static List<String> colors = new ArrayList<>(
-            Arrays.asList(
-                    Ref.RAINBOW_BLOCK,
-                    Ref.PURE_WHITE, Ref.PURE_BLACK, Ref.PURE_GREY, Ref.PURE_LIGHTGREY,
-                    Ref.PURE_BROWN, Ref.PURE_BLUE, Ref.PURE_LIGHTBLUE, Ref.PURE_RED,
-                    Ref.PURE_ORANGE, Ref.PURE_GREEN, Ref.PURE_LIME, Ref.PURE_CYAN,
-                    Ref.PURE_PINK, Ref.PURE_PURPLE, Ref.PURE_YELLOW, Ref.PURE_MAGENTA
+    public static final HashMap<String, HashMap<String, ColorBlock>> blockMap = new HashMap<>();
+    public static final List<ColorBlock> blocks = new ArrayList<>();
+    public static final String[] colors = new String[]{
+            Ref.RAINBOW_BLOCK,
+            Ref.PURE_WHITE, Ref.PURE_BLACK, Ref.PURE_GREY, Ref.PURE_LIGHTGREY,
+            Ref.PURE_BROWN, Ref.PURE_BLUE, Ref.PURE_LIGHTBLUE, Ref.PURE_RED,
+            Ref.PURE_ORANGE, Ref.PURE_GREEN, Ref.PURE_LIME, Ref.PURE_CYAN,
+            Ref.PURE_PINK, Ref.PURE_PURPLE, Ref.PURE_YELLOW, Ref.PURE_MAGENTA
+    };
 
-    ));
-
-    public static String LIT = "lit";
-    public static String UNLIT = "unlit";
+    public static final String LIT = "lit";
+    public static final String UNLIT = "unlit";
 
     public static void init() {
         for (String color : colors) {
