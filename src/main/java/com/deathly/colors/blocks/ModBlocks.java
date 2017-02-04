@@ -1,130 +1,62 @@
 package com.deathly.colors.blocks;
 
 
-
+import com.deathly.colors.Ref;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.*;
+
 public class ModBlocks {
 
-    public static RainbowBlock rainbowblock;
-    public static RainbowBlockLit rainbowblocklit;
-    public static PureWhite purewhite;
-    public static PureBlack pureblack;
-    public static PureGrey puregrey;
-    public static PureLightGrey purelightgrey;
-    public static PureBrown purebrown;
-    public static PureBlue pureblue;
-    public static PureLightBlue purelightblue;
-    public static PureRed purered;
-    public static PureOrange pureorange;
-    public static PureGreen puregreen;
-    public static PureLime purelime;
-    public static PureCyan purecyan;
-    public static PurePink purepink;
-    public static PurePurple purepurple;
-    public static PureYellow pureyellow;
-    public static PureMagenta puremagenta;
-    public static PureBlackLit pureblacklit;
-    public static PureBlueLit purebluelit;
-    public static PureBrownLit purebrownlit;
-    public static PureYellowLit pureyellowlit;
-    public static PureWhiteLit purewhitelit;
-    public static PureRedLit pureredlit;
-    public static PurePinkLit purepinklit;
-    public static PurePurpleLit purepurplelit;
-    public static PureOrangeLit pureorangelit;
-    public static PureMagentaLit puremagentalit;
-    public static PureLimeLit purelimelit;
-    public static PureLightGreyLit purelightgreylit;
-    public static PureLightBlueLit purelightbluelit;
-    public static PureGreyLit puregreylit;
-    public static PureGreenLit puregreenlit;
-    public static PureCyanLit purecyanlit;
+    public static HashMap<String, HashMap<String, ColorBlock>> blockMap = new HashMap<>();
+    public static List<ColorBlock> blocks = new ArrayList<>();
+    public static List<String> colors = new ArrayList<>(
+            Arrays.asList(
+                    Ref.RAINBOW_BLOCK,
+                    Ref.PURE_WHITE, Ref.PURE_BLACK, Ref.PURE_GREY, Ref.PURE_LIGHTGREY,
+                    Ref.PURE_BROWN, Ref.PURE_BLUE, Ref.PURE_LIGHTBLUE, Ref.PURE_RED,
+                    Ref.PURE_ORANGE, Ref.PURE_GREEN, Ref.PURE_LIME, Ref.PURE_CYAN,
+                    Ref.PURE_PINK, Ref.PURE_PURPLE, Ref.PURE_YELLOW, Ref.PURE_MAGENTA
 
+    ));
+
+    public static String LIT = "lit";
+    public static String UNLIT = "unlit";
 
     public static void init() {
+        for (String color : colors) {
+            addBlocksForColor(color);
+        }
 
-        //Misc
-        rainbowblock = new RainbowBlock();
-        rainbowblocklit = new RainbowBlockLit();
-        //Colors
-        purewhite = new PureWhite();
-        pureblack = new PureBlack();
-        puregrey = new PureGrey();
-        purelightgrey = new PureLightGrey();
-        purebrown = new PureBrown();
-        pureblue = new PureBlue();
-        purelightblue = new PureLightBlue();
-        purered = new PureRed();
-        pureorange = new PureOrange();
-        puregreen = new PureGreen();
-        purelime = new PureLime();
-        purecyan = new PureCyan();
-        purepink = new PurePink();
-        purepurple = new PurePurple();
-        pureyellow = new PureYellow();
-        puremagenta = new PureMagenta();
-        //Lit Colors
-        pureblacklit = new PureBlackLit();
-        purebrownlit = new PureBrownLit();
-        purebluelit = new PureBlueLit();
-        purelightbluelit = new PureLightBlueLit();
-        purelightgreylit = new PureLightGreyLit();
-        pureorangelit = new PureOrangeLit();
-        purepinklit = new PurePinkLit();
-        purepurplelit = new PurePurpleLit();
-        purecyanlit = new PureCyanLit();
-        purelimelit = new PureLimeLit();
-        puregreenlit = new PureGreenLit();
-        pureredlit = new PureRedLit();
-        purewhitelit = new PureWhiteLit();
-        puregreylit = new PureGreyLit();
-        pureyellowlit = new PureYellowLit();
-        puremagentalit = new PureMagentaLit();
+    }
 
+    private static void addBlocksForColor(String color) {
+        // given a single color unlocalized name string, generate both lit
+        // and unlit blocks, and store them respectively
+        ColorBlock unlitBlock = new ColorBlock(color, false);
+        ColorBlock litBlock = new ColorBlock(color, true);
+
+        unlitBlock.setCreativeTab(Ref.COLORS_CREATIVE_TAB);
+
+        HashMap<String, ColorBlock> myHash = new HashMap<>();
+
+        // TODO Find a way to keep lit ColorBlock Items from being displayed in JEI (with no item texture)
+        myHash.put(LIT, litBlock);
+        myHash.put(UNLIT, unlitBlock);
+
+        blockMap.put(color, myHash);
+
+        blocks.add(litBlock);
+        blocks.add(unlitBlock);
     }
 
     @SideOnly(Side.CLIENT)
     public static void initModels() {
-
-        //Misc
-        rainbowblock.initModel();
-        rainbowblocklit.initModel();
-        //Colors
-        purewhite.initModel();
-        pureblack.initModel();
-        puregrey.initModel();
-        purelightgrey.initModel();
-        purebrown.initModel();
-        pureblue.initModel();
-        purelightblue.initModel();
-        purered.initModel();
-        pureorange.initModel();
-        puregreen.initModel();
-        purelime.initModel();
-        purecyan.initModel();
-        purepink.initModel();
-        purepurple.initModel();
-        pureyellow.initModel();
-        puremagenta.initModel();
-        //Lit Colors
-        pureblacklit.initModel();
-        puremagentalit.initModel();
-        pureyellowlit.initModel();
-        purebluelit.initModel();
-        puregreenlit.initModel();
-        purebrownlit.initModel();
-        purecyanlit.initModel();
-        purelightbluelit.initModel();
-        puregreylit.initModel();
-        purelightgreylit.initModel();
-        purepinklit.initModel();
-        pureorangelit.initModel();
-        purewhitelit.initModel();
-        purelimelit.initModel();
-        pureredlit.initModel();
-        purepurplelit.initModel();
+        for (ColorBlock block : blocks) {
+            // iterate through all blocks and register each one
+            block.initModel();
+        }
     }
 
 }

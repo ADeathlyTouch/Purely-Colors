@@ -3,14 +3,15 @@ itemGroup.colorstab=Colors
 #Items
 item.purifieddust.name=Purified Dust
 item.compressed_enderpearl.name=Compressed Ender Pearl
+
 #Colors
 tile.rainbowblock.name=Rainbow Block
 tile.purewhite.name=Pure White Block
-tile.purelightgrey.name=Pure Lightgrey Block
+tile.purelightgrey.name=Pure Light Grey Block
 tile.puregrey.name=Pure Grey Block
 tile.pureblack.name=Pure Black Block
 tile.pureblue.name=Pure Blue Block
-tile.purelightblue.name=Pure Lightblue Block
+tile.purelightblue.name=Pure Light Blue Block
 tile.purecyan.name=Pure Cyan Block
 tile.puregreen.name=Pure Green Block
 tile.purelime.name=Pure Lime Block
@@ -21,3 +22,22 @@ tile.purepink.name=Pure Pink Block
 tile.purered.name=Pure Red Block
 tile.pureyellow.name=Pure Yellow Block
 tile.purebrown.name=Pure Brown Block
+#Colors
+tile.rainbowblocklit.name=Rainbow Block (Illuminated)
+tile.purewhitelit.name=Pure White Block (Illuminated)
+tile.purelightgreylit.name=Pure Light Grey Block (Illuminated)
+tile.puregreylit.name=Pure Grey Block (Illuminated)
+tile.pureblacklit.name=Pure Black Block (Illuminated)
+tile.purebluelit.name=Pure Blue Block (Illuminated)
+tile.purelightbluelit.name=Pure Light Blue Block (Illuminated)
+tile.purecyanlit.name=Pure Cyan Block (Illuminated)
+tile.puregreenlit.name=Pure Green Block (Illuminated)
+tile.purelimelit.name=Pure Lime Block (Illuminated)
+tile.pureorangelit.name=Pure Orange Block (Illuminated)
+tile.purepurplelit.name=Pure Purple Block (Illuminated)
+tile.puremagentalit.name=Pure Magenta Block (Illuminated)
+tile.purepinklit.name=Pure Pink Block (Illuminated)
+tile.pureredlit.name=Pure Red Block (Illuminated)
+tile.pureyellowlit.name=Pure Yellow Block (Illuminated)
+tile.purebrownlit.name=Pure Brown Block (Illuminated)
+

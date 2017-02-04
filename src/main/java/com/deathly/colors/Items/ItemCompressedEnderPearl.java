@@ -21,7 +21,7 @@ public class ItemCompressedEnderPearl extends Item {
     {
         setUnlocalizedName(name);
         this.maxStackSize = 16;
-        this.setCreativeTab(Ref.colorstab);
+        this.setCreativeTab(Ref.COLORS_CREATIVE_TAB);
     }
 
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)

@@ -6,6 +6,8 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * Created by Deathly on 11/19/2016.
@@ -30,12 +32,14 @@ public class ModItems {
         GameRegistry.register(compressedepearl, new ResourceLocation(Ref.modid, "compressed_enderpearl"));
     }
 
+    @SideOnly(Side.CLIENT)
     public static void registerRenders() {
         registerRender(TAvionLogo);
         registerRender(purifieddust);
         registerRender(compressedepearl);
     }
 
+    @SideOnly(Side.CLIENT)
     private static void registerRender(Item item) {
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(Ref.modid + ":" + item.getUnlocalizedName().substring(5), "inventory"));
     }
