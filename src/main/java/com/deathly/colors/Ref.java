@@ -37,7 +37,7 @@ public class Ref {
     public static final CreativeTabs COLORS_CREATIVE_TAB = new CreativeTabs("Colors") {
         @Override
         public ItemStack getTabIconItem() {
-            return new ItemStack(ModBlocks.blockMap.get(RAINBOW_BLOCK).get(ModBlocks.UNLIT));
+            return new ItemStack(ModBlocks.getUnlitBlock(RAINBOW_BLOCK));
         }
     };
 }

@@ -36,6 +36,7 @@ public class ColorBlock extends Block {
 
     private String color;
     private Boolean isOn = false;
+
     /**
      * @param uname The block's unlocalized name
      */
@@ -46,26 +47,32 @@ public class ColorBlock extends Block {
         setHardness(0.5F);
         setHarvestLevel("pickaxe", 0);
 
+        this.color = uname;
+        this.isOn = isOn;
+
         if (isOn) {
+            // ILLUMINATED
             setLightLevel(1F);
             setRegistryName(uname + "lit");
             setUnlocalizedName(uname + "lit");
         } else {
-            setCreativeTab(Ref.COLORS_CREATIVE_TAB);
+            // NORMAL
             setRegistryName(uname);
             setUnlocalizedName(uname);
+            setCreativeTab(Ref.COLORS_CREATIVE_TAB);
+            // only non-illuminated blocks have items.
+            GameRegistry.register(new ItemBlock(this), getRegistryName());
         }
 
-        this.color = uname;
-        this.isOn = isOn;
-
         GameRegistry.register(this);
-        GameRegistry.register(new ItemBlock(this), getRegistryName());
     }
 
     @SideOnly(Side.CLIENT)
     public void initModel() {
-        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(getRegistryName(), "inventory"));
+        if (!this.isOn) {
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(getRegistryName(), "inventory"));
+        }
+
     }
 
     /**

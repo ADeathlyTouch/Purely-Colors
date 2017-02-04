@@ -10,21 +10,21 @@ import static net.minecraftforge.oredict.OreDictionary.registerOre;
  */
 public class ModOreDict {
     public static void registerOeDictEntries() {
-        registerOre("colorBrick", new ItemStack(ModBlocks.blockMap.get(Ref.PURE_WHITE).get(ModBlocks.UNLIT), 1));
-        registerOre("colorBrick", new ItemStack(ModBlocks.blockMap.get(Ref.PURE_RED).get(ModBlocks.UNLIT), 1));
-        registerOre("colorBrick", new ItemStack(ModBlocks.blockMap.get(Ref.PURE_GREY).get(ModBlocks.UNLIT), 1));
-        registerOre("colorBrick", new ItemStack(ModBlocks.blockMap.get(Ref.PURE_YELLOW).get(ModBlocks.UNLIT), 1));
-        registerOre("colorBrick", new ItemStack(ModBlocks.blockMap.get(Ref.PURE_GREEN).get(ModBlocks.UNLIT), 1));
-        registerOre("colorBrick", new ItemStack(ModBlocks.blockMap.get(Ref.PURE_BROWN).get(ModBlocks.UNLIT), 1));
-        registerOre("colorBrick", new ItemStack(ModBlocks.blockMap.get(Ref.PURE_CYAN).get(ModBlocks.UNLIT), 1));
-        registerOre("colorBrick", new ItemStack(ModBlocks.blockMap.get(Ref.PURE_LIME).get(ModBlocks.UNLIT), 1));
-        registerOre("colorBrick", new ItemStack(ModBlocks.blockMap.get(Ref.PURE_PURPLE).get(ModBlocks.UNLIT), 1));
-        registerOre("colorBrick", new ItemStack(ModBlocks.blockMap.get(Ref.PURE_PINK).get(ModBlocks.UNLIT), 1));
-        registerOre("colorBrick", new ItemStack(ModBlocks.blockMap.get(Ref.PURE_ORANGE).get(ModBlocks.UNLIT), 1));
-        registerOre("colorBrick", new ItemStack(ModBlocks.blockMap.get(Ref.PURE_WHITE).get(ModBlocks.UNLIT), 1));
-        registerOre("colorBrick", new ItemStack(ModBlocks.blockMap.get(Ref.PURE_BLACK).get(ModBlocks.UNLIT), 1));
-        registerOre("colorBrick", new ItemStack(ModBlocks.blockMap.get(Ref.PURE_MAGENTA).get(ModBlocks.UNLIT), 1));
-        registerOre("colorBrick", new ItemStack(ModBlocks.blockMap.get(Ref.PURE_LIGHTBLUE).get(ModBlocks.UNLIT), 1));
-        registerOre("colorBrick", new ItemStack(ModBlocks.blockMap.get(Ref.PURE_LIGHTGREY).get(ModBlocks.UNLIT), 1));
+        registerOre("colorBrick", new ItemStack(ModBlocks.getUnlitBlock(Ref.PURE_WHITE), 1));
+        registerOre("colorBrick", new ItemStack(ModBlocks.getUnlitBlock(Ref.PURE_RED), 1));
+        registerOre("colorBrick", new ItemStack(ModBlocks.getUnlitBlock(Ref.PURE_GREY), 1));
+        registerOre("colorBrick", new ItemStack(ModBlocks.getUnlitBlock(Ref.PURE_YELLOW), 1));
+        registerOre("colorBrick", new ItemStack(ModBlocks.getUnlitBlock(Ref.PURE_GREEN), 1));
+        registerOre("colorBrick", new ItemStack(ModBlocks.getUnlitBlock(Ref.PURE_BROWN), 1));
+        registerOre("colorBrick", new ItemStack(ModBlocks.getUnlitBlock(Ref.PURE_CYAN), 1));
+        registerOre("colorBrick", new ItemStack(ModBlocks.getUnlitBlock(Ref.PURE_LIME), 1));
+        registerOre("colorBrick", new ItemStack(ModBlocks.getUnlitBlock(Ref.PURE_PURPLE), 1));
+        registerOre("colorBrick", new ItemStack(ModBlocks.getUnlitBlock(Ref.PURE_PINK), 1));
+        registerOre("colorBrick", new ItemStack(ModBlocks.getUnlitBlock(Ref.PURE_ORANGE), 1));
+        registerOre("colorBrick", new ItemStack(ModBlocks.getUnlitBlock(Ref.PURE_WHITE), 1));
+        registerOre("colorBrick", new ItemStack(ModBlocks.getUnlitBlock(Ref.PURE_BLACK), 1));
+        registerOre("colorBrick", new ItemStack(ModBlocks.getUnlitBlock(Ref.PURE_MAGENTA), 1));
+        registerOre("colorBrick", new ItemStack(ModBlocks.getUnlitBlock(Ref.PURE_LIGHTBLUE), 1));
+        registerOre("colorBrick", new ItemStack(ModBlocks.getUnlitBlock(Ref.PURE_LIGHTGREY), 1));
     }
 }

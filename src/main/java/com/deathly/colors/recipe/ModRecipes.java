@@ -13,8 +13,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
-import static net.minecraftforge.fml.common.registry.GameRegistry.addRecipe;
-
 public class ModRecipes {
 
     public static void init() {
@@ -66,7 +64,7 @@ public class ModRecipes {
     }
     
     private static ColorBlock getBlock(String name) {
-        return ModBlocks.blockMap.get(name).get(ModBlocks.UNLIT);
+        return ModBlocks.getUnlitBlock(name);
     }
 
     private static ItemStack getDye(int meta) {

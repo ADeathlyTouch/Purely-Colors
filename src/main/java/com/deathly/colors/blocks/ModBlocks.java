@@ -7,6 +7,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.*;
 
+import static com.deathly.colors.Colors.logger;
+
 public class ModBlocks {
 
     public static HashMap<String, HashMap<String, ColorBlock>> blockMap = new HashMap<>();
@@ -39,7 +41,6 @@ public class ModBlocks {
 
         HashMap<String, ColorBlock> myHash = new HashMap<>();
 
-        // TODO Find a way to keep lit ColorBlock Items from being displayed in JEI (with no item texture)
         myHash.put(LIT, litBlock);
         myHash.put(UNLIT, unlitBlock);
 
@@ -55,6 +56,22 @@ public class ModBlocks {
             // iterate through all blocks and register each one
             block.initModel();
         }
+    }
+
+    public static ColorBlock getUnlitBlock(String color) {
+        if (blockMap.get(color) == null) {
+            logger.error("Attempted to retrieve unknown color block '" + color + "'.");
+            return null;
+        }
+        return blockMap.get(color).get(UNLIT);
+    }
+
+    public static ColorBlock getLitBlock(String color) {
+        if (blockMap.get(color) == null) {
+            logger.error("Attempted to retrieve unknown color block '" + color + "'.");
+            return null;
+        }
+        return blockMap.get(color).get(LIT);
     }
 
 }
