@@ -4,14 +4,14 @@ package com.deathly.colors.recipe;
  * Created by Deathly on 11/20/2016 at 1:09 AM.
  */
 import com.deathly.colors.Items.ModItems;
+import com.deathly.colors.Ref;
+import com.deathly.colors.blocks.ColorBlock;
 import com.deathly.colors.blocks.ModBlocks;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
-
-import static net.minecraftforge.fml.common.registry.GameRegistry.addRecipe;
 
 public class ModRecipes {
 
@@ -21,33 +21,53 @@ public class ModRecipes {
     }
 
     private static void addShapelessRecipes() {
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModBlocks.purewhite),Items.WATER_BUCKET,"colorBrick"));
-        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModBlocks.purewhite),Items.POTIONITEM,"colorBrick"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(getBlock(Ref.PURE_WHITE)),Items.WATER_BUCKET,"colorBrick"));
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(getBlock(Ref.PURE_WHITE)),Items.POTIONITEM,"colorBrick"));
     }
 
     private static void addShapedRecipes() {
+        ColorBlock whiteBlock = getBlock(Ref.PURE_WHITE);
+
         /** Blocks*/
-        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.purewhite, 16),"xax","aya","xax",'a', ModItems.purifieddust,'y', Blocks.STONE);
+        GameRegistry.addShapedRecipe(getStack(Ref.PURE_WHITE, 16),"xax","aya","xax",'a', ModItems.purifieddust,'y', Blocks.STONE);
         GameRegistry.addShapedRecipe(new ItemStack(ModItems.purifieddust),"axa","xyx","axa",'x', Blocks.STONE,'y', Items.GLOWSTONE_DUST);
-        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.pureblack, 8),"aaa","aya","aaa",'a', ModBlocks.purewhite,'y', Items.DYE);
-        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.purered, 8),"aaa","aya","aaa",'a', ModBlocks.purewhite,'y', new ItemStack(Items.DYE, 1, 1));
-        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.puregreen, 8),"aaa","aya","aaa",'a', ModBlocks.purewhite,'y', new ItemStack(Items.DYE, 1, 2));
-        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.purebrown, 8),"aaa","aya","aaa",'a', ModBlocks.purewhite,'y', new ItemStack(Items.DYE, 1, 3));
-        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.pureblue, 8),"aaa","aya","aaa",'a', ModBlocks.purewhite,'y', new ItemStack(Items.DYE, 1, 4));
-        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.purepurple, 8),"aaa","aya","aaa",'a', ModBlocks.purewhite,'y', new ItemStack(Items.DYE, 1, 5));
-        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.purecyan, 8),"aaa","aya","aaa",'a', ModBlocks.purewhite,'y', new ItemStack(Items.DYE, 1, 6));
-        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.purelightgrey, 8),"aaa","aya","aaa",'a', ModBlocks.purewhite,'y', new ItemStack(Items.DYE, 1, 7));
-        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.puregrey, 8),"aaa","aya","aaa",'a', ModBlocks.purewhite,'y', new ItemStack(Items.DYE, 1, 8));
-        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.purepink, 8),"aaa","aya","aaa",'a', ModBlocks.purewhite,'y', new ItemStack(Items.DYE, 1, 9));
-        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.purelime, 8),"aaa","aya","aaa",'a', ModBlocks.purewhite,'y', new ItemStack(Items.DYE, 1, 10));
-        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.pureyellow, 8),"aaa","aya","aaa",'a', ModBlocks.purewhite,'y', new ItemStack(Items.DYE, 1, 11));
-        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.purelightblue, 8),"aaa","aya","aaa",'a', ModBlocks.purewhite,'y', new ItemStack(Items.DYE, 1, 12));
-        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.puremagenta, 8),"aaa","aya","aaa",'a', ModBlocks.purewhite,'y', new ItemStack(Items.DYE, 1, 13));
-        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.pureorange, 8),"aaa","aya","aaa",'a', ModBlocks.purewhite,'y', new ItemStack(Items.DYE, 1, 14));
-        GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.rainbowblock),"abc","dye","fgh",'y', ModBlocks.purewhite,'a', new ItemStack(Items.DYE, 1, 1),'b', new ItemStack(Items.DYE, 1, 9),'c', new ItemStack(Items.DYE, 1, 13),'d', new ItemStack(Items.DYE, 1, 14),'e', new ItemStack(Items.DYE, 1, 5),'f', new ItemStack(Items.DYE, 1, 11),'g', new ItemStack(Items.DYE, 1, 10),'h', new ItemStack(Items.DYE, 1, 4));
+        GameRegistry.addShapedRecipe(getStack(Ref.PURE_BLACK, 8),"aaa","aya","aaa",'a', whiteBlock,'y', Items.DYE);
+        GameRegistry.addShapedRecipe(getStack(Ref.PURE_RED, 8),"aaa","aya","aaa",'a', whiteBlock,'y', getDye(1));
+        GameRegistry.addShapedRecipe(getStack(Ref.PURE_GREEN, 8),"aaa","aya","aaa",'a', whiteBlock,'y', getDye(2));
+        GameRegistry.addShapedRecipe(getStack(Ref.PURE_BROWN, 8),"aaa","aya","aaa",'a', whiteBlock,'y', getDye(3));
+        GameRegistry.addShapedRecipe(getStack(Ref.PURE_BLUE, 8),"aaa","aya","aaa",'a', whiteBlock,'y', getDye(4));
+        GameRegistry.addShapedRecipe(getStack(Ref.PURE_PURPLE, 8),"aaa","aya","aaa",'a', whiteBlock,'y', getDye(5));
+        GameRegistry.addShapedRecipe(getStack(Ref.PURE_CYAN, 8),"aaa","aya","aaa",'a', whiteBlock,'y', getDye(6));
+        GameRegistry.addShapedRecipe(getStack(Ref.PURE_LIGHTGREY, 8),"aaa","aya","aaa",'a', whiteBlock,'y', getDye(7));
+        GameRegistry.addShapedRecipe(getStack(Ref.PURE_GREY, 8),"aaa","aya","aaa",'a', whiteBlock,'y', getDye(8));
+        GameRegistry.addShapedRecipe(getStack(Ref.PURE_PINK, 8),"aaa","aya","aaa",'a', whiteBlock,'y', getDye(9));
+        GameRegistry.addShapedRecipe(getStack(Ref.PURE_LIME, 8),"aaa","aya","aaa",'a', whiteBlock,'y', getDye(10));
+        GameRegistry.addShapedRecipe(getStack(Ref.PURE_YELLOW, 8),"aaa","aya","aaa",'a', whiteBlock,'y', getDye(11));
+        GameRegistry.addShapedRecipe(getStack(Ref.PURE_LIGHTBLUE, 8),"aaa","aya","aaa",'a', whiteBlock,'y', getDye(12));
+        GameRegistry.addShapedRecipe(getStack(Ref.PURE_MAGENTA, 8),"aaa","aya","aaa",'a', whiteBlock,'y', getDye(13));
+        GameRegistry.addShapedRecipe(getStack(Ref.PURE_ORANGE, 8),"aaa","aya","aaa",'a', whiteBlock,'y', getDye(14));
+
+        GameRegistry.addShapedRecipe(
+                new ItemStack(getBlock(Ref.RAINBOW_BLOCK)), "abc","dye","fgh", // <-- I see what you did there
+                'a', getDye(1), 'b', getDye(9), 'c', getDye(13),
+                'd', getDye(14), 'y', whiteBlock, 'e', getDye(5),
+                'f', getDye(11), 'g', getDye(10), 'h', getDye(4)
+        );
 
         /**Items*/
         GameRegistry.addShapedRecipe(new ItemStack(ModItems.compressedepearl),"aax","aax","xxx",'a', Items.ENDER_PEARL);
 
+    }
+
+    private static ItemStack getStack(String color, int amount) {
+        return new ItemStack(getBlock(color), amount);
+    }
+    
+    private static ColorBlock getBlock(String name) {
+        return ModBlocks.getUnlitBlock(name);
+    }
+
+    private static ItemStack getDye(int meta) {
+        return new ItemStack(Items.DYE, 1, meta);
     }
 }

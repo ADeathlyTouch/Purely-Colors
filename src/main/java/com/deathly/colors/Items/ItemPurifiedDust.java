@@ -9,6 +9,6 @@ import net.minecraft.item.Item;
 public class ItemPurifiedDust extends Item {
     public ItemPurifiedDust(String name) {
         setUnlocalizedName(name);
-        setCreativeTab(Ref.colorstab);
+        setCreativeTab(Ref.COLORS_CREATIVE_TAB);
     }
 }
