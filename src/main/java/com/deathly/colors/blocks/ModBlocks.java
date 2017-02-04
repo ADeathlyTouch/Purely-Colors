@@ -37,8 +37,6 @@ public class ModBlocks {
         ColorBlock unlitBlock = new ColorBlock(color, false);
         ColorBlock litBlock = new ColorBlock(color, true);
 
-        unlitBlock.setCreativeTab(Ref.COLORS_CREATIVE_TAB);
-
         HashMap<String, ColorBlock> myHash = new HashMap<>();
 
         // TODO Find a way to keep lit ColorBlock Items from being displayed in JEI (with no item texture)

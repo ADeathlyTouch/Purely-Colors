@@ -4,11 +4,13 @@ package com.deathly.colors.blocks;
  * Created by Deathly on 11/19/2016 at 9:39 PM.
  */
 import com.deathly.colors.Colors;
+import com.deathly.colors.Ref;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -33,6 +35,7 @@ import static com.deathly.colors.Colors.logger;
 public class ColorBlock extends Block {
 
     private String color;
+    private Boolean isOn = false;
     /**
      * @param uname The block's unlocalized name
      */
@@ -48,11 +51,13 @@ public class ColorBlock extends Block {
             setRegistryName(uname + "lit");
             setUnlocalizedName(uname + "lit");
         } else {
+            setCreativeTab(Ref.COLORS_CREATIVE_TAB);
             setRegistryName(uname);
             setUnlocalizedName(uname);
         }
 
-        color = uname;
+        this.color = uname;
+        this.isOn = isOn;
 
         GameRegistry.register(this);
         GameRegistry.register(new ItemBlock(this), getRegistryName());
@@ -63,24 +68,52 @@ public class ColorBlock extends Block {
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(getRegistryName(), "inventory"));
     }
 
+    /**
+     * Called when a neighboring block was changed and marks that this state should perform any checks during a neighbor
+     * change. Cases may include when redstone power is updated, cactus blocks popping off due to a neighboring solid
+     * block, etc.
+     */
     @Override
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos p_189540_5_) {
-        logger.info("Neighbor changed!!");
-        this.toggleLight(worldIn, pos);
+        if (!worldIn.isRemote)
+        {
+            if (this.isOn && !worldIn.isBlockPowered(pos))
+            {
+                worldIn.scheduleUpdate(pos, this, 4);
+            }
+            else if (!this.isOn && worldIn.isBlockPowered(pos))
+            {
+                worldIn.setBlockState(pos, getLitBlock().getDefaultState(), 2);
+            }
+        }
     }
 
+
+    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
+    {
+        if (!worldIn.isRemote)
+        {
+            if (this.isOn && !worldIn.isBlockPowered(pos))
+            {
+                worldIn.setBlockState(pos, getUnlitBlock().getDefaultState(), 2);
+            }
+        }
+    }
+    /**
+     * Called after the block is set in the Chunk data, but before the Tile Entity is set
+     */
+    @Override
     public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state)
     {
-        logger.info("Block added!!!");
-        this.toggleLight(worldIn, pos);
-    }
-
-    public void toggleLight(World worldIn, BlockPos pos) {
-        if (Colors.enableLamps) {
-            if (worldIn.isBlockPowered(pos)) {
-                worldIn.setBlockState(pos, this.getLitBlock().getDefaultState());
-            } else {
-                worldIn.setBlockState(pos, this.getUnlitBlock().getDefaultState());
+        if (!worldIn.isRemote)
+        {
+            if (this.isOn && !worldIn.isBlockPowered(pos))
+            {
+                worldIn.setBlockState(pos, getUnlitBlock().getDefaultState(), 2);
+            }
+            else if (!this.isOn && worldIn.isBlockPowered(pos))
+            {
+                worldIn.setBlockState(pos, getLitBlock().getDefaultState(), 2);
             }
         }
     }
