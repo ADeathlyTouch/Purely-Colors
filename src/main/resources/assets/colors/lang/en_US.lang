@@ -1,5 +1,5 @@
 #GUI
-itemGroup.colorstab=Colors
+itemGroup.colors=Colors
 #Items
 item.purifieddust.name=Purified Dust
 item.compressed_enderpearl.name=Compressed Ender Pearl

@@ -34,7 +34,7 @@ public class Ref {
             PURE_YELLOW = "pureyellow",
             PURE_MAGENTA = "puremagenta";
 
-    public static final CreativeTabs COLORS_CREATIVE_TAB = new CreativeTabs("COLORS_CREATIVE_TAB") {
+    public static final CreativeTabs COLORS_CREATIVE_TAB = new CreativeTabs("Colors") {
         @Override
         public ItemStack getTabIconItem() {
             return new ItemStack(ModBlocks.blockMap.get(RAINBOW_BLOCK).get(ModBlocks.UNLIT));
