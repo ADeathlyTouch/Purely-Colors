@@ -2,6 +2,9 @@
 *.apk
 *.ap_
 
+# Run files
+run
+
 # Files for the ART/Dalvik VM
 *.dex
 
